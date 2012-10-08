@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>L’attribut placeholder sur OS X et iOS, comme autrefois. · Les intégristes – code</title>
+	<link rel="stylesheet" href="../assets/prism.css">
+	<link rel="stylesheet" href="../assets/code.css">
+	<style>
+		input { text-align: center; }
+		input::-webkit-input-placeholder { color: #999; }
+		input:-ms-input-placeholder      { color: #999; }
+		input:-moz-placeholder           { color: #999; }
+
+		#ph-2:focus::-webkit-input-placeholder { color: #fff; }
+		#ph-2:focus:-moz-placeholder           { color: #fff; }
+
+		#ph-3:focus::-webkit-input-placeholder { color: transparent; }
+		#ph-3:focus:-moz-placeholder           { color: transparent; }
+	</style>
+</head>
+<body>
+	<h1>L’attribut placeholder sur OS X et iOS, comme autrefois.</h1>
+
+	<p>
+		<label for="ph-1">Placeholder par défaut :</label>
+		<input id="ph-1" type="text" value="" placeholder="Doo dooo di dada">
+	</p>
+	<p>
+		<label for="ph-2">Un placeholder avec <code class="language-css">color:#fff</code> au focus :</label>
+		<input id="ph-2" type="text" value="" placeholder="Doo dooo di dada">
+	</p>
+	<p>
+		<label for="ph-3">Un placeholder avec <code class="language-css">color:transparent</code> au focus :</label>
+		<input id="ph-3" type="text" value="" placeholder="Doo dooo di dada">
+	</p>
+	<pre class="language-css"><code>/* Style de base des placeholders */
+input::-webkit-input-placeholder { color: #999; }
+input:-ms-input-placeholder      { color: #999; }
+input:-moz-placeholder           { color: #999; }
+
+/* Au focus, couleur: #fff */
+#ph-2:focus::-webkit-input-placeholder { color: #fff; }
+#ph-2:focus:-moz-placeholder           { color: #fff; }
+
+/* Au focus, couleur: transparent */
+#ph-3:focus::-webkit-input-placeholder { color: transparent; }
+#ph-3:focus:-moz-placeholder           { color: transparent; }</code></pre>
+
+	<p>Cette page de démonstration est liée à un article du blog <a href="http://www.lesintegristes.net/">Les intégristes</a> : <a href="http://www.lesintegristes.net/2012/10/09/l-attribut-placeholder-sur-os-x-et-ios-comme-autrefois">L’attribut placeholder sur OS X et iOS, comme autrefois.</a></p>
+	<script src="../assets/prism.js"></script>
+</body>
+</html>

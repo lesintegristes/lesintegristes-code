@@ -1,0 +1,59 @@
+body, input {
+  font: 14px/24px Verdana,Helvetica,sans-serif;
+}
+body, input, a:link, a:visited {
+  color: #494949;
+}
+body {
+  width: 800px;
+  margin: 40px auto;
+  background: #fff;
+}
+h1 {
+  line-height: 40px;
+  margin-bottom: 40px;
+}
+label {
+  cursor: pointer;
+}
+p {
+  margin: 30px 0;
+}
+p img {
+  vertical-align: middle;
+}
+
+/* Prism */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #494949;
+  text-shadow: 0 1px #eee;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #ECE4D6;
+  border-radius: 5px;
+}
+:not(pre) > code[class*="language-"] {
+  padding: 2px 8px;
+}
+.token.punctuation {
+  color: #857E76;
+}
+.token.selector,
+.token.attr-name,
+.token.string {
+  color: #83A10F;
+}
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #568AC5;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number {
+  color: #8A569D;
+}
