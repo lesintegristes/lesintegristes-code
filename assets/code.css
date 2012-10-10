@@ -22,6 +22,9 @@ p {
 p img {
   vertical-align: middle;
 }
+button {
+  cursor: pointer;
+}
 
 /* Prism */
 code[class*="language-"],
@@ -56,4 +59,11 @@ pre[class*="language-"] {
 .token.boolean,
 .token.number {
   color: #8A569D;
+}
+.line-highlight {
+  background: hsla(24, 20%, 50%,.08);
+}
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  font: 11px/14px Consolas, Monaco, 'Andale Mono', monospace;
 }
