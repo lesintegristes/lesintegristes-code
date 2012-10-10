@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8">
+	<title>La propriété animation-direction · Les intégristes – code</title>
+	<link rel="stylesheet" href="../assets/prism.css">
+	<link rel="stylesheet" href="../assets/code.css">
+	<style>
+	pre + h2 {
+		margin-top: 40px;
+	}
+	.anim {
+		position: relative;
+		height: 20px;
+		background: rgba(86, 138, 197, .4);
+	}
+	.anim div {
+		position: absolute;
+		left: 0;
+		width: 20px;
+		height: 20px;
+		background: #568AC5;
+	}
+	.anim + p {
+		margin-top: 5px;
+		margin-bottom: 15px;
+	}
+	.anim.play div {
+		-webkit-animation-name: anim;
+		-webkit-animation-timing-function: ease-out;
+		-webkit-animation-duration: 2s;
+		-webkit-animation-iteration-count: infinite;
+		animation-name: anim;
+		animation-timing-function: ease-out;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+	}
+
+	@-webkit-keyframes anim {
+		from { left: 0; }
+		to { left: -webkit-calc(100% - 20px); }
+	}
+	@keyframes anim {
+		from { left: 0; }
+		to {
+			left: calc(100% - 20px);
+		}
+	}
+
+	.anim-normal div {
+		-webkit-animation-direction: normal;
+		animation-direction: normal;
+	}
+	.anim-alternate div {
+		-webkit-animation-direction: alternate;
+		animation-direction: alternate;
+	}
+	.anim-reverse div {
+		-webkit-animation-direction: reverse;
+		animation-direction: reverse;
+	}
+	.anim-alternate-reverse div {
+		-webkit-animation-direction: alternate-reverse;
+		animation-direction: alternate-reverse;
+	}
+	</style>
+</head>
+<body>
+	<h1>La propriété animation-direction</h1>
+
+	<p>
+		Quelques exemples illustrant les différentes valeurs de cette propriété (<a href="https://developer.mozilla.org/en-US/docs/CSS/animation-direction" lang="en">documentation sur le <abbr title="Mozilla Developer Network">MDN</abbr></a>).
+	</p>
+
+	<h2>animation-direction: normal</h2>
+	<div class="anim anim-normal">
+		<div></div>
+	</div>
+	<p><button type="button" class="start-stop"></button></p>
+	<pre data-line="7" class="language-css"><code>
+@keyframes anim {
+  from { left: 0; }
+  to { left: calc(100% - 20px); }
+}
+div {
+  animation-name: anim;
+  animation-direction: normal;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}</code></pre>
+
+	<h2>animation-direction: alternate</h2>
+
+	<div class="anim anim-alternate">
+		<div></div>
+	</div>
+	<p><button type="button" class="start-stop"></button></p>
+
+	<pre data-line="7" class="language-css"><code>
+@keyframes anim {
+  from { left: 0; }
+  to { left: calc(100% - 20px); }
+}
+div {
+  animation-name: anim;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}</code></pre>
+
+	<h2>animation-direction: reverse</h2>
+	<div class="anim anim-reverse">
+		<div></div>
+	</div>
+	<p><button type="button" class="start-stop"></button></p>
+	<pre data-line="7" class="language-css"><code>
+@keyframes anim {
+  from { left: 0; }
+  to { left: calc(100% - 20px); }
+}
+div {
+  animation-name: anim;
+  animation-direction: reverse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}</code></pre>
+
+	<h2>animation-direction: alternate-reverse</h2>
+	<div class="anim anim-alternate-reverse">
+		<div></div>
+	</div>
+	<p><button type="button" class="start-stop"></button></p>
+	<pre data-line="7" class="language-css"><code>
+@keyframes anim {
+  from { left: 0; }
+  to { left: calc(100% - 20px); }
+}
+div {
+  animation-name: anim;
+  animation-direction: alternate-reverse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}</code></pre>
+
+	<script>
+	(function(){
+		var buttons = document.querySelectorAll('button.start-stop');
+				playText = 'Jouer l’animation',
+				stopText = 'Stopper l’animation',
+				playClass = 'play';
+		for (var i=0; i < buttons.length; i++) {
+			buttons[i].innerHTML = playText;
+			buttons[i].onclick = function(){
+				var animElt = this.parentElement.previousElementSibling;
+				if (animElt.classList.contains(playClass)) {
+					animElt.classList.remove(playClass);
+					this.innerHTML = playText;
+				} else {
+					animElt.classList.add(playClass);
+					this.innerHTML = stopText;
+				}
+			};
+		};
+	})()
+	</script>
+
+	<p>Cette page de démonstration est liée à un article du blog <a href="http://www.lesintegristes.net/">Les intégristes</a> : <a href="http://www.lesintegristes.net/2012/10/09/l-attribut-placeholder-sur-os-x-et-ios-comme-autrefois">L’attribut placeholder sur OS X et iOS, comme autrefois.</a></p>
+	<script src="../assets/prism.js"></script>
+</body>
+</html>
